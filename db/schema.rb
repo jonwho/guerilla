@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180120210649) do
+ActiveRecord::Schema.define(version: 20180120230040) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,6 +20,10 @@ ActiveRecord::Schema.define(version: 20180120210649) do
     t.datetime "updated_at", null: false
     t.string "name"
     t.text "qr_code"
+    t.string "image_asset_file_name"
+    t.string "image_asset_content_type"
+    t.integer "image_asset_file_size"
+    t.datetime "image_asset_updated_at"
   end
 
 end
