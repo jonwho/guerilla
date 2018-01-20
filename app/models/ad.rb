@@ -8,6 +8,8 @@ class Ad < ApplicationRecord
   }
 
   validates :name, uniqueness: { case_sensitive: false }, presence: true
+  validates_presence_of :scaling
+  validates_presence_of :image_asset
   validates_attachment_content_type :image_asset, content_type: /\Aimage\/.*\Z/
 
   after_create :generate_qr_code
