@@ -9,7 +9,7 @@ class Ad < ApplicationRecord
 
   validates :name, uniqueness: { case_sensitive: false }, presence: true
   validates_presence_of :scaling
-  validates_presence_of :image_asset
+  # validates_presence_of :image_asset
   validates_attachment_content_type :image_asset, content_type: /\Aimage\/.*\Z/
 
   after_create :generate_qr_code
@@ -18,6 +18,8 @@ class Ad < ApplicationRecord
 
   def generate_qr_code
     uuid    = SecureRandom.uuid
+    uuid    = 'https://s3-us-west-2.amazonaws.com/guerillahack/guerilla.png'
+
     qr_code = RQRCode::QRCode.new(uuid)
 
     update_attribute(:qr_code, qr_code)

@@ -1,4 +1,48 @@
+<style type="text/css">
+  table {
+    border-width: 0;
+    border-style: none;
+    border-color: #0000ff;
+    border-collapse: collapse;
+  }
+  td {
+    border-width: 0;
+    border-style: none;
+    border-color: #0000ff;
+    border-collapse: collapse;
+    padding: 0;
+    margin: 0;
+    width: 10px;
+    height: 10px;
+  }
+  td.black { background-color: #000; }
+  td.white { background-color: #fff; }
+</style>
+
 <p id="notice"><%= notice %></p>
+
+<div>
+  <h3 style="display: inline;">Name</h3>
+  <%= @ad.name %>
+</div>
+
+<br />
+<br />
+
+<img src="<%= @ad.qr_code.as_png(
+  resize_gte_to: false,
+  resize_exaxctly_to: false,
+  fill: 'white',
+  color: 'black',
+  size: 300,
+  border_modules: 4,
+  module_px_size: 6,
+  file: nil
+).to_data_url %>"
+/>
+
+<br />
+<br />
 
 <%= link_to 'Edit', edit_ad_path(@ad) %> |
 <%= link_to 'Back', ads_path %>
